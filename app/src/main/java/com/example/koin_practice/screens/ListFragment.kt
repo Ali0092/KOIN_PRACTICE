@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 class ListFragment : Fragment() {
 
     private lateinit var binding:FragmentListBinding
-    private lateinit var myViewModel:MyViewModel
+    private val myViewModel=getViewModel<MyViewModel>()
     private val myAdapter by lazy{ ListFragmentAdapter() }
 
     override fun onCreateView(
@@ -25,7 +25,6 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding= FragmentListBinding.inflate(layoutInflater)
-        myViewModel=getViewModel<MyViewModel>()
 
         settingUpRecyclerView()
 
